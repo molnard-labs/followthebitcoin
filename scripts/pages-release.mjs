@@ -19,7 +19,7 @@ export function inlineScriptHashes(html) {
 
 export function contentSecurityPolicy(html) {
   const hashes = inlineScriptHashes(html);
-  return `default-src 'none'; script-src 'self'${hashes.length ? ` ${hashes.join(' ')}` : ''}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'`;
+  return `default-src 'none'; script-src 'self' https://static.cloudflareinsights.com${hashes.length ? ` ${hashes.join(' ')}` : ''}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'`;
 }
 
 export function pagesHeaders(html) {

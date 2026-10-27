@@ -991,12 +991,13 @@ export default function Home() {
             </article>
             <article>
               <Eye size={26} />
-              <h2>No profile follows you</h2>
+              <h2>Site analytics</h2>
               <p>
-                This edition has no visitor analytics script or project-owned
-                visit database. The site is hosted by Cloudflare Pages, which
-                handles requests and may process connection information under
-                its own privacy policy. Playing does not send us your answers.
+                This Pages edition uses Cloudflare Web Analytics to measure
+                visits, page views and performance. A Cloudflare script runs in
+                your browser and sends measurement data to Cloudflare. It does
+                not receive your quest answers. Cloudflare also handles hosting
+                requests under its privacy policy.
               </p>
               <ExternalLink href="https://www.cloudflare.com/privacypolicy/">
                 Cloudflare privacy policy

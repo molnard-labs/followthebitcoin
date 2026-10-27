@@ -55,9 +55,9 @@ already exists. For development, stop the release server and use
 - No account, email, wallet connection, real transaction or payment is needed.
 - No cookies, localStorage, visitor IDs, fingerprints or answer uploads.
 - Progress stays in this tab's memory and clears on reload. Badge files are yours.
-- Fonts, icons and scripts are local. No third-party request is needed to play.
-- The Pages edition has no project analytics, visitor beacon or active counter.
-  Cloudflare serves the files and can process connection metadata independently.
+- Fonts, icons and gameplay scripts are local. Cloudflare Pages injects a Web
+  Analytics beacon to measure visits, page views and performance.
+- Cloudflare serves the files and can process connection metadata independently.
 - Community is an optional external link. GitHub conversations are public and
   account/provider data is governed by GitHub.
 - The reading edition includes every lesson with JavaScript disabled, including
@@ -73,8 +73,8 @@ The site uses **Cloudflare Pages' native GitHub integration**, project
 automatically checks, builds and publishes `main`; preview deployments are
 disabled. GitHub Actions separately validates pull requests and retains the
 checked static export for review. It has no publishing job or Cloudflare token.
-No custom domain, Functions, database or paid Worker is required. Do not enable
-Web Analytics, Zaraz or third-party script injection for this release.
+No custom domain, Functions, database or paid Worker is required. Cloudflare
+Web Analytics is enabled; do not enable Zaraz or other third-party injection.
 
 Native build settings: framework **None**, repository root, output `dist/client`,
 Node `24.15.0`, and `SKIP_DEPENDENCY_INSTALL=1`. The build command is:
