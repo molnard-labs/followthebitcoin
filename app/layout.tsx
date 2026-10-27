@@ -227,8 +227,9 @@ export default function RootLayout({
             </p>
             <p>
               No account, answers or wallet data are collected. This static
-              edition has no visitor analytics. Cloudflare serves the files and
-              can process connection metadata. Optional community conversations
+              edition uses Cloudflare Web Analytics for visits, page views and
+              performance. Cloudflare serves the files and can process connection
+              metadata. Optional community conversations
               use GitHub; posting there requires a GitHub account. There is no
               onion address yet.
             </p>

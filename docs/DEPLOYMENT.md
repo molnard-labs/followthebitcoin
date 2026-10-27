@@ -107,8 +107,8 @@ For each native deployment:
 3. Check both quests, wrong answers, evidence/role transitions, resume/reset,
    distinct badge downloads and copied quest links. Check a narrow viewport,
    keyboard navigation and the JavaScript-disabled reading edition.
-4. Inspect requests and console errors. Gameplay needs only this site's origin;
-   no analytics beacon, cookie, wallet connection or progress storage is added.
+4. Inspect requests and console errors. Confirm the Cloudflare Web Analytics
+   beacon loads and reports, and no wallet connection or progress storage is added.
 5. Record the live source revision. Test Tor Browser separately before making
    claims about its accessibility on this hosting account.
 
@@ -139,10 +139,10 @@ the dashboard drag-and-drop upload flow.
 
 ## Privacy and hosting
 
-Keep Web Analytics, Zaraz, Rocket Loader and other script injection disabled.
-The same-origin CSP intentionally excludes external beacons. Cloudflare can
-process hosting connection metadata independently; this release has no project
-visitor analytics or active daily counter. No `.onion` service is claimed.
+Cloudflare Pages injects the Web Analytics beacon. The CSP permits its script
+and reporting endpoint; keep Zaraz, Rocket Loader and other injection disabled.
+Cloudflare can process hosting connection metadata independently. No project
+daily counter or `.onion` service is active.
 
 The configuration requires no paid option. Provider quotas and terms still
 apply; check current limits before enabling Functions or changing architecture.

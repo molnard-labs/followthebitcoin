@@ -13,7 +13,7 @@ import {
 } from '../scripts/pages-release.mjs';
 import { createSiteServer } from '../server/serve.mjs';
 
-test('Pages CSP hashes authorize exact emitted script bytes and agree with the local server', async () => {
+test('Pages CSP authorizes exact scripts and the local server stays same-origin', async () => {
   const source = 'window.test="árvíztűrő";\n';
   const html = `<html>Follow the Bitcoin · First Clue<noscript>Reading edition</noscript><script>${source}</script><script src="/app.js"></script></html>`;
   const hash = `'sha256-${createHash('sha256').update(source).digest('base64')}'`;
@@ -33,6 +33,8 @@ test('Pages CSP hashes authorize exact emitted script bytes and agree with the l
     contentSecurityPolicy(html).split(';')[1],
     /unsafe-inline|unsafe-eval/,
   );
+  assert.match(contentSecurityPolicy(html), /script-src 'self' https:\/\/static\.cloudflareinsights\.com/);
+  assert.match(contentSecurityPolicy(html), /connect-src 'self' https:\/\/cloudflareinsights\.com/);
   assert(headers.includes('Referrer-Policy: no-referrer'));
   const root = await mkdtemp(join(tmpdir(), 'follow-pages-csp-'));
   let app;
@@ -43,10 +45,9 @@ test('Pages CSP hashes authorize exact emitted script bytes and agree with the l
     const response = await fetch(
       `http://127.0.0.1:${app.server.address().port}`,
     );
-    assert.equal(
-      response.headers.get('content-security-policy'),
-      contentSecurityPolicy(html),
-    );
+    const localCsp = response.headers.get('content-security-policy');
+    assert.match(localCsp, /sha256-/);
+    assert.doesNotMatch(localCsp, /cloudflareinsights\.com/);
     await response.text();
   } finally {
     if (app) await app.close();

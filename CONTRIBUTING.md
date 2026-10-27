@@ -34,9 +34,10 @@ mechanic or a reason to accuse someone. The first quest uses fictional data.
 
 ## Privacy and independence
 
-No analytics SDKs, third-party embeds, remote fonts, tracking links, visitor IDs,
-wallet connections or external calls on page load. New data collection requires
-an explicit design discussion and accurate UI documentation before merge.
+The Pages deployment uses Cloudflare Web Analytics, disclosed in the UI. Avoid
+additional analytics, third-party embeds, remote fonts, tracking links, wallet
+connections and external calls on page load. New data collection requires an
+explicit design discussion and accurate UI documentation before merge.
 Sponsors cannot buy factual conclusions, badge eligibility or hidden rankings.
 Potential wallet listings must use consistent public criteria and disclose paid
 placement. Conflicts of interest in a contribution should be declared.

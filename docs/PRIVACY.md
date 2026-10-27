@@ -6,27 +6,28 @@
 | Badge PNG | Browser memory, then an explicit download/share destination | User controlled |
 | Community posts | GitHub and readers' devices | GitHub/member controlled |
 | Hosting connection metadata | Cloudflare infrastructure | Provider controlled |
+| Web Analytics performance and visit measurements | Cloudflare | Provider controlled |
 
-The Pages release has no project analytics, cookies, localStorage, sessionStorage,
-visitor IDs, session identifiers, IP hashes, fingerprinting, answer uploads,
-analytics SDKs or real blockchain queries. Fonts, icons and scripts are local.
+The Pages release uses Cloudflare Web Analytics. The project does not upload
+answers or use cookies, localStorage, sessionStorage, fingerprinting or real
+blockchain queries. Fonts, icons and gameplay scripts are local.
 External links use no-referrer. WebMCP exposes fictional gameplay in browsers
 that support it and makes no request or answer upload to this project's operator.
 
 ## Cloudflare Pages
 
 Cloudflare serves the static files and can process connection metadata such as
-IP addresses as an infrastructure provider. The project's lack of a tracking
-script does not imply that the CDN never sees a connection. There is no active
-project page counter or analytics beacon in this release. Web Analytics and
-script injection must remain disabled unless the privacy design is explicitly
-revised and disclosed. A restrictive same-origin CSP also blocks external script
-and connection destinations during play.
+IP addresses as an infrastructure provider. Cloudflare injects a browser-side
+Web Analytics beacon to collect visit, page-view and performance measurements.
+It does not collect quest answers. See Cloudflare's privacy policy and Web
+Analytics documentation for its processing and retention. There is no active
+project-owned page counter. The CSP permits Cloudflare's analytics script and
+reporting endpoint in addition to same-origin resources.
 
 The reading edition works with JavaScript disabled. Tor Browser can use the HTTPS
 version, subject to the provider's availability/access rules. A project-owned
 `.onion` address is not available yet. A future onion service can serve the same
-files without clearnet resource dependencies or a redirect back to HTTPS.
+files without a redirect back to HTTPS; analytics would require separate review.
 
 ## Community and sharing
 
